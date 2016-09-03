@@ -1,6 +1,11 @@
-export default function reducer(state = [], action) {
-  const actions = {
-  };
+// Lib
+import { combineReducers } from 'redux';
 
-  return actions[action.type] ? actions[action.type]() : state;
-}
+// Reducers
+import feedReducer from './feed-reducer';
+import feedItemReducer from './feed-item-reducer';
+
+export default combineReducers({
+  feedReducer,
+  feedItemReducer
+});
