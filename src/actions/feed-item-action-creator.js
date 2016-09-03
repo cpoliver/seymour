@@ -26,7 +26,7 @@ const toggleStarred = (id, isStarred) => ({
 });
 
 // Action Creator (with Dispatch)
-export default const FeedItemActionCreator => dispatch => ({
+export default dispatch => ({
   share: (id, shareType) => dispatch(share(id, shareType)),
   toggleHidden: (id, isHidden) => dispatch(toggleHidden(id, isHidden)),
   toggleRead: (id, isRead) => dispatch(toggleRead(id, isRead)),

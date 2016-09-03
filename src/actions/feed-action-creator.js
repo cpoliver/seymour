@@ -23,7 +23,7 @@ const getFeed = id => ({
 });
 
 // Action Creator (with Dispatch)
-export default const FeedActionCreator => dispatch => ({
+export default dispatch => ({
   addFeed: url => dispatch(addFeed(url)),
   deleteFeed: id => dispatch(deleteFeed(id)),
   editFeed: id, changes => dispatch(editFeed(id, changes)),
