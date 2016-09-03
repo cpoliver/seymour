@@ -1,5 +1,5 @@
-import { List, Map } from 'immutable';
+import { fromJS } from 'immutable';
 
-export const INIT_STATE = Map({
-  feeds: Map()
+export const INIT_STATE = fromJS({
+  feeds: {}
 });
