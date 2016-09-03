@@ -1,7 +1,9 @@
-import reducer from '../../src/reducers/feed-reducer';
+import shortid from 'shortid';
 
 import { INIT_STATE } from '../../src/config/constants';
 import { FEED_ACTION_TYPES as types } from '../../src/actions/action-types';
+
+import reducer from '../../src/reducers/feed-reducer';
 
 describe('the feed reducer', () => {
   describe('when called with an add feed action', () => {
@@ -13,10 +15,14 @@ describe('the feed reducer', () => {
         };
 
       const newState = reducer(state, action);
+      console.log(newState);
 
-      expect(newState.feeds.length).toEqual(1);
-      expect(newState.feeds[0].url).toEqual(url);
-      expect(typeof newState.feeds[0].id).toBe('number');
+      const feeds = newState.get('feeds'),
+        feed = feeds.first();
+
+      expect(feeds.size).toEqual(1);
+      expect(shortid.isValid(feed.get('id'))).toBe(true);
+      expect(feed.get('url')).toEqual(action.url);
     });
   });
 });
