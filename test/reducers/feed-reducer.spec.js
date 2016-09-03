@@ -15,12 +15,11 @@ describe('the feed reducer', () => {
           type: types.ADD_FEED
         };
 
-      const newState = reducer(state, action),
-        feeds = newState.get('feeds'),
-        id = feeds.keySeq().first(),
-        url = feeds.first().get('url');
+      const newFeeds = reducer(state, action).get('feeds'),
+        id = newFeeds.keySeq().first(),
+        url = newFeeds.first().get('url');
 
-      expect(feeds.size).toEqual(1);
+      expect(newFeeds.size).toEqual(1);
       expect(shortid.isValid(id)).toBe(true);
       expect(url).toEqual(action.url);
     });
@@ -36,10 +35,34 @@ describe('the feed reducer', () => {
           type: types.DELETE_FEED
         };
 
-      const newState = reducer(state, action),
-        feeds = newState.get('feeds');
+      const newFeeds = reducer(state, action).get('feeds');
 
-      expect(feeds.size).toEqual(0);
+      expect(newFeeds.size).toEqual(0);
+    });
+  });
+
+  describe('when called with an edit feed action', () => {
+    it('should remove the specified feed from the state', () => {
+      const state = Map({
+          feeds: Map({ '42': {
+            url: 'http://oldurl.seymour.com',
+            anotherProperty: 'do not alter'
+          } })
+        }),
+        action = {
+          id: '42',
+          changes: { url: 'http://newurl.seymour.com', newProperty: 'add this' },
+          type: types.EDIT_FEED
+        };
+
+      const newFeeds = reducer(state, action).get('feeds');
+
+      expect(newFeeds.size).toEqual(1);
+      expect(newFeeds.get('42')).toEqual({
+        url: 'http://newurl.seymour.com',
+        anotherProperty: 'do not alter',
+        newProperty: 'add this'
+      });
     });
   });
 });
