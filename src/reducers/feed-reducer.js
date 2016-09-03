@@ -19,7 +19,7 @@ export default function feedReducer(state = INIT_STATE, action) {
       return state.mergeIn(['feeds', action.id], action.changes);
     },
     [FEED_ACTION_TYPES.GET_FEED]: () => {
-
+      return state.getIn(['feeds', action.id]);
     },
     [FEED_ACTION_TYPES.REFESH_FEED_DATA]: () => {
 

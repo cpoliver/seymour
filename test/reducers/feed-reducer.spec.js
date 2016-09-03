@@ -44,10 +44,12 @@ describe('the feed reducer', () => {
   describe('when called with an edit feed action', () => {
     it('should remove the specified feed from the state', () => {
       const state = Map({
-          feeds: fromJS({ '42': {
-            url: 'http://oldurl.seymour.com',
-            anotherProperty: 'do not alter'
-          } })
+          feeds: fromJS({
+            '42': {
+              url: 'http://oldurl.seymour.com',
+              anotherProperty: 'do not alter'
+            }
+          })
         }),
         action = {
           id: '42',
@@ -65,10 +67,22 @@ describe('the feed reducer', () => {
       }));
     });
   });
+
+  describe('when called with an get feed action', () => {
+    it('should remove the specified feed from the state', () => {
+      const state = Map({
+          feeds: fromJS({ '42': { url: 'http://feed.seymour.com' } })
+        }),
+        action = {
+          id: '42',
+          type: types.GET_FEED
+        };
+
+      const feed = reducer(state, action);
+
+      expect(feed).toEqual(state.getIn(['feeds', '42']));
+    });
+  });
 });
-
-// const type = types.EDIT_FEED
-
-// const type = types.GET_FEED
 
 // const type = types.REFESH_FEED_DATA
