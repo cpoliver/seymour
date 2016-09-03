@@ -1,3 +1,4 @@
+import { List, Map } from 'immutable';
 import shortid from 'shortid';
 
 import { INIT_STATE } from '../../src/config/constants';
@@ -14,20 +15,34 @@ describe('the feed reducer', () => {
           type: types.ADD_FEED
         };
 
-      const newState = reducer(state, action);
-      console.log(newState);
-
-      const feeds = newState.get('feeds'),
-        feed = feeds.first();
+      const newState = reducer(state, action),
+        feeds = newState.get('feeds'),
+        id = feeds.keySeq().first(),
+        url = feeds.first().get('url');
 
       expect(feeds.size).toEqual(1);
-      expect(shortid.isValid(feed.get('id'))).toBe(true);
-      expect(feed.get('url')).toEqual(action.url);
+      expect(shortid.isValid(id)).toBe(true);
+      expect(url).toEqual(action.url);
+    });
+  });
+
+  describe('when called with a delete feed action', () => {
+    it('should remove the specified feed from the state', () => {
+      const state = Map({
+          feeds: Map({ '42': {} })
+        }),
+        action = {
+          id: '42',
+          type: types.DELETE_FEED
+        };
+
+      const newState = reducer(state, action),
+        feeds = newState.get('feeds');
+
+      expect(feeds.size).toEqual(0);
     });
   });
 });
-
-// const type = types.DELETE_FEED
 
 // const type = types.EDIT_FEED
 

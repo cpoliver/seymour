@@ -9,14 +9,11 @@ export default function feedReducer(state = INIT_STATE, action) {
     [FEED_ACTION_TYPES.ADD_FEED]: () => {
       return state.updateIn(
         ['feeds'],
-        feeds => feeds.push(Map({
-          id: shortid.generate(),
-          url: action.url
-        }))
+        feeds => feeds.set(shortid.generate(), Map({ url: action.url }))
       );
     },
     [FEED_ACTION_TYPES.DELETE_FEED]: () => {
-
+      return state.deleteIn(['feeds', action.id]);
     },
     [FEED_ACTION_TYPES.EDIT_FEED]: () => {
 
