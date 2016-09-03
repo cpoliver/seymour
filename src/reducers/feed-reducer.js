@@ -22,7 +22,7 @@ export default function feedReducer(state = INIT_STATE, action) {
       return state.getIn(['feeds', action.id]);
     },
     [FEED_ACTION_TYPES.REFESH_FEED_DATA]: () => {
-
+      // TODO: implement feed retrieval with redux-thunk
     }
   };
 
