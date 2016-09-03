@@ -16,7 +16,7 @@ export default function feedReducer(state = INIT_STATE, action) {
       return state.deleteIn(['feeds', action.id]);
     },
     [FEED_ACTION_TYPES.EDIT_FEED]: () => {
-
+      return state.mergeIn(['feeds', action.id], action.changes);
     },
     [FEED_ACTION_TYPES.GET_FEED]: () => {
 
