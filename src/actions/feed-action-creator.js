@@ -26,6 +26,6 @@ const getFeed = id => ({
 export default dispatch => ({
   addFeed: url => dispatch(addFeed(url)),
   deleteFeed: id => dispatch(deleteFeed(id)),
-  editFeed: id, changes => dispatch(editFeed(id, changes)),
+  editFeed: (id, changes) => dispatch(editFeed(id, changes)),
   getFeed: id => dispatch(getFeed(id))
 });
