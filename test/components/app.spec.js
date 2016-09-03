@@ -6,7 +6,6 @@ import App from '../../src/components/app';
 describe('the App component', () => {
   it('should render without crashing', () => {
       const app = shallow(<App />);
-      console.log(app);
   });
 
   it('should contain the placeholder heading text', () => {
