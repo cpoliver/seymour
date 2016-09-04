@@ -4,28 +4,24 @@ import { FEED_ITEM_ACTION_TYPES } from './action-types';
 const share = (id, feedId, shareType) => ({
   id,
   feedId, // TODO: remove and make a prefix to the item id?
-  //shareType,
   type: FEED_ITEM_ACTION_TYPES.SHARE
 });
 
 const toggleHidden = (id, feedId, isHidden) => ({
   id,
   feedId, // TODO: remove and make a prefix to the item id?
-  //isHidden,
   type: FEED_ITEM_ACTION_TYPES.TOGGLE_HIDDEN
 });
 
 const toggleRead = (id, feedId, isRead) => ({
   id,
   feedId, // TODO: remove and make a prefix to the item id?
-  //isRead,
   type: FEED_ITEM_ACTION_TYPES.TOGGLE_READ
 });
 
 const toggleStarred = (id, feedId, isStarred) => ({
   id,
   feedId, // TODO: remove and make a prefix to the item id?
-  //isStarred,
   type: FEED_ITEM_ACTION_TYPES.TOGGLE_STARRED
 });
 
