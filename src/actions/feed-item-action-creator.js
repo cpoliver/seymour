@@ -1,34 +1,38 @@
 import { FEED_ITEM_ACTION_TYPES } from './action-types';
 
 // Action Creators
-const share = (id, shareType) => ({
+const share = (id, feedId, shareType) => ({
   id,
-  shareType,
+  feedId, // TODO: remove and make a prefix to the item id?
+  //shareType,
   type: FEED_ITEM_ACTION_TYPES.SHARE
 });
 
-const toggleHidden = (id, isHidden) => ({
+const toggleHidden = (id, feedId, isHidden) => ({
   id,
-  isHidden,
+  feedId, // TODO: remove and make a prefix to the item id?
+  //isHidden,
   type: FEED_ITEM_ACTION_TYPES.TOGGLE_HIDDEN
 });
 
-const toggleRead = (id, isRead) => ({
+const toggleRead = (id, feedId, isRead) => ({
   id,
-  isRead,
+  feedId, // TODO: remove and make a prefix to the item id?
+  //isRead,
   type: FEED_ITEM_ACTION_TYPES.TOGGLE_READ
 });
 
-const toggleStarred = (id, isStarred) => ({
+const toggleStarred = (id, feedId, isStarred) => ({
   id,
-  isStarred,
+  feedId, // TODO: remove and make a prefix to the item id?
+  //isStarred,
   type: FEED_ITEM_ACTION_TYPES.TOGGLE_STARRED
 });
 
 // Action Creator (with Dispatch)
 export default dispatch => ({
-  share: (id, shareType) => dispatch(share(id, shareType)),
-  toggleHidden: (id, isHidden) => dispatch(toggleHidden(id, isHidden)),
-  toggleRead: (id, isRead) => dispatch(toggleRead(id, isRead)),
-  toggleStarred: (id, isStarred) => dispatch(toggleStarred(id, isStarred))
+  share: (id, feedId, shareType) => dispatch(share(id, feedId, shareType)),
+  toggleHidden: (id, feedId, isHidden) => dispatch(toggleHidden(id, feedId, isHidden)),
+  toggleRead: (id, feedId, isRead) => dispatch(toggleRead(id, feedId, isRead)),
+  toggleStarred: (id, feedId, isStarred) => dispatch(toggleStarred(id, feedId, isStarred))
 });

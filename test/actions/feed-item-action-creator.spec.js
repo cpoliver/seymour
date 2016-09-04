@@ -11,15 +11,15 @@ describe('the feed item action creator', () => {
 
   describe('the `share` method', () => {
     it('should dispatch the share action', () => {
-      const id = 42, shareType = 'twitter';
+      const id = '42', feedId = '91', shareType = 'twitter';
 
       const expectedAction = {
         id,
-        shareType,
+        feedId,
         type: types.SHARE
       };
 
-      actionCreator.share(id, shareType);
+      actionCreator.share(id, feedId, shareType);
 
       expect(dispatch).toBeCalledWith(expectedAction);
     });
@@ -27,15 +27,15 @@ describe('the feed item action creator', () => {
 
   describe('the `toggleHidden` method', () => {
     it('should dispatch the toggleHidden action', () => {
-      const id = 42, isHidden = true;
+      const id = '42', feedId = '91', isHidden = true;
 
       const expectedAction = {
         id,
-        isHidden,
+        feedId,
         type: types.TOGGLE_HIDDEN
       };
 
-      actionCreator.toggleHidden(id, isHidden);
+      actionCreator.toggleHidden(id, feedId, isHidden);
 
       expect(dispatch).toBeCalledWith(expectedAction);
     });
@@ -43,15 +43,15 @@ describe('the feed item action creator', () => {
 
   describe('the `toggleRead` method', () => {
     it('should dispatch the toggleRead action', () => {
-      const id = 42, isRead = false;
+      const id = '42', feedId = '91', isRead = false;
 
       const expectedAction = {
         id,
-        isRead,
+        feedId,
         type: types.TOGGLE_READ
       };
 
-      actionCreator.toggleRead(id, isRead);
+      actionCreator.toggleRead(id, feedId, isRead);
 
       expect(dispatch).toBeCalledWith(expectedAction);
     });
@@ -59,15 +59,15 @@ describe('the feed item action creator', () => {
 
   describe('the `toggleStarred` method', () => {
     it('should dispatch the toggleStarred action', () => {
-      const id = 42, isStarred = true;
+      const id = '42', feedId = '91', isStarred = true;
 
       const expectedAction = {
         id,
-        isStarred,
-        type: types.TOGGLE_STARRED
+        feedId,
+        type: types.TOGGLE_STARRED 
       };
 
-      actionCreator.toggleStarred(id, isStarred);
+      actionCreator.toggleStarred(id, feedId, isStarred);
 
       expect(dispatch).toBeCalledWith(expectedAction);
     });
