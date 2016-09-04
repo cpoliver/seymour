@@ -42,7 +42,7 @@ describe('the feed reducer', () => {
   });
 
   describe('when called with an edit feed action', () => {
-    it('should remove the specified feed from the state', () => {
+    it('should update the specified feed in the state', () => {
       const state = Map({
           feeds: fromJS({
             '42': {
@@ -68,8 +68,8 @@ describe('the feed reducer', () => {
     });
   });
 
-  describe('when called with an get feed action', () => {
-    it('should remove the specified feed from the state', () => {
+  describe('when called with a get feed action', () => {
+    it('should retrieve the specified feed from the state', () => {
       const state = Map({
           feeds: fromJS({ '42': { url: 'http://feed.seymour.com' } })
         }),
