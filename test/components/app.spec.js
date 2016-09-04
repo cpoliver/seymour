@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import App from '../../src/components/app';
 
-describe('the App component', () => {
+describe('the app component', () => {
   it('should render without crashing', () => {
       const app = shallow(<App />);
   });
