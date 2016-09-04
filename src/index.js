@@ -2,15 +2,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 
 // App
 import App from './components/app';
-import rootReducer from './reducers';
+import { makeStore} from './store';
 
-const store = createStore(
-  rootReducer
-);
+export const store = makeStore();
 
 render(
   <Provider store={store}>
