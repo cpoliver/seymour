@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+
+import Toolbar from '../toolbar';
+
 import './app.css';
 
 class App extends Component {
   render() {
     return (
       <div className="app">
-        <h1>&lt;app goes here /&gt;</h1>
+        <Toolbar />
       </div>
     );
   }
