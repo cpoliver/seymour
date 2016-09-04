@@ -1,4 +1,4 @@
-import { List, Map } from 'immutable';
+import { Map } from 'immutable';
 import shortid from 'shortid';
 
 import { INIT_STATE } from '../config/constants';
