@@ -1,75 +1,61 @@
-import feedItemActionCreator from '../../src/actions/feed-item-action-creator';
+import * as actionCreator from '../../src/actions/feed-item-action-creator';
 import { FEED_ITEM_ACTION_TYPES as types } from '../../src/actions/action-types';
 
 describe('the feed item action creator', () => {
-  let actionCreator, dispatch;
-  
-  beforeEach(() => {
-    dispatch = jest.fn();
-    actionCreator = feedItemActionCreator(dispatch);
-  });
-
   describe('the `share` method', () => {
-    it('should dispatch the share action', () => {
-      const id = '42', feedId = '91', shareType = 'twitter';
-
-      const expectedAction = {
-        id,
-        feedId,
+    it('should return the share action', () => {
+      const expected = {
+        id: '42',
+        feedId: '91',
+        shareType: 'twitter',
         type: types.SHARE
       };
 
-      actionCreator.share(id, feedId, shareType);
+      const actual = actionCreator.share(expected.id, expected.feedId, expected.shareType);
 
-      expect(dispatch).toBeCalledWith(expectedAction);
+      expect(actual).toEqual(expected);
     });
   });
 
   describe('the `toggleHidden` method', () => {
-    it('should dispatch the toggleHidden action', () => {
-      const id = '42', feedId = '91', isHidden = true;
-
-      const expectedAction = {
-        id,
-        feedId,
+    it('should return the toggleHidden action', () => {
+      const expected = {
+        id: '42',
+        feedId: '91',
         type: types.TOGGLE_HIDDEN
       };
 
-      actionCreator.toggleHidden(id, feedId, isHidden);
+      const actual = actionCreator.toggleHidden(expected.id, expected.feedId);
 
-      expect(dispatch).toBeCalledWith(expectedAction);
+      expect(actual).toEqual(expected);
     });
   });
 
   describe('the `toggleRead` method', () => {
-    it('should dispatch the toggleRead action', () => {
-      const id = '42', feedId = '91', isRead = false;
-
-      const expectedAction = {
-        id,
-        feedId,
+    it('should return the toggleRead action', () => {
+      const expected = {
+        id: '42',
+        feedId: '91',
         type: types.TOGGLE_READ
       };
 
-      actionCreator.toggleRead(id, feedId, isRead);
+      const actual = actionCreator.toggleRead(expected.id, expected.feedId);
 
-      expect(dispatch).toBeCalledWith(expectedAction);
+      expect(actual).toEqual(expected);
     });
   });
 
   describe('the `toggleStarred` method', () => {
-    it('should dispatch the toggleStarred action', () => {
-      const id = '42', feedId = '91', isStarred = true;
-
-      const expectedAction = {
-        id,
-        feedId,
+    it('should return the toggleStarred action', () => {
+       const expected = {
+        id: '42',
+        feedId: '91',
         type: types.TOGGLE_STARRED 
       };
 
-      actionCreator.toggleStarred(id, feedId, isStarred);
+      const actual = actionCreator.toggleStarred(expected.id, expected.feedId);
 
-      expect(dispatch).toBeCalledWith(expectedAction);
+      expect(actual).toEqual(expected);
     });
   });
 });

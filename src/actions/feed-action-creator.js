@@ -1,31 +1,22 @@
-import { FEED_ACTION_TYPES } from './action-types';
+import { FEED_ACTION_TYPES as types } from './action-types';
 
-// Action Creators
-const addFeed = url => ({
+export const addFeed = url => ({
   url,
-  type: FEED_ACTION_TYPES.ADD_FEED
+  type: types.ADD_FEED
 });
 
-const deleteFeed = id => ({
+export const deleteFeed = id => ({
   id,
-  type: FEED_ACTION_TYPES.DELETE_FEED
+  type: types.DELETE_FEED
 });
 
-const editFeed = (id, changes) => ({
+export const editFeed = (id, changes) => ({
   id,
   changes,
-  type: FEED_ACTION_TYPES.EDIT_FEED
+  type: types.EDIT_FEED
 });
 
-const getFeed = id => ({
+export const getFeed = id => ({
   id,
-  type: FEED_ACTION_TYPES.GET_FEED
-});
-
-// Action Creator (with Dispatch)
-export default dispatch => ({
-  addFeed: url => dispatch(addFeed(url)),
-  deleteFeed: id => dispatch(deleteFeed(id)),
-  editFeed: (id, changes) => dispatch(editFeed(id, changes)),
-  getFeed: id => dispatch(getFeed(id))
+  type: types.GET_FEED
 });
