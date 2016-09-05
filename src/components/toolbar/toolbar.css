@@ -1,0 +1,18 @@
+.c-toolbar {
+  background: white;
+}
+
+.c-toolbar__inner {
+  margin: 0 auto;
+  min-width: 340px;
+  max-width: 540px;
+}
+
+.c-toolbar input {
+  margin: 10px;
+  width: 70%;
+}
+
+.c-toolbar button {
+  width: 25%;
+}

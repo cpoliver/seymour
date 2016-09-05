@@ -11,7 +11,6 @@ import './app.css';
 const App = () => (
   <div className="app">
     <Toolbar />
-    <hr />
     <Feed feed={mockFeed.responseData.feed} />
   </div>
 );
