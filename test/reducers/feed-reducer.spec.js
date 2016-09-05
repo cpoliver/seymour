@@ -2,7 +2,7 @@ import { fromJS, List, Map } from 'immutable';
 import shortid from 'shortid';
 
 import { INIT_STATE } from '../../src/config/constants';
-import { FEED_ACTION_TYPES as types } from '../../src/actions/action-types';
+import { FEED_ACTION_TYPES as actionType } from '../../src/actions/action-types';
 
 import reducer from '../../src/reducers/feed-reducer';
 
@@ -10,10 +10,10 @@ describe('the feed reducer', () => {
   describe('when called with an add feed action', () => {
     it('should add the feed to the state', () => {
       const state = INIT_STATE,
-        action = {
-          url: 'http://newfeed.seymour.com',
-          type: types.ADD_FEED
-        };
+            action = {
+              url: 'http://newfeed.seymour.com',
+              type: actionType.ADD_FEED
+            };
 
       const newFeeds = reducer(state, action).get('feeds'),
         id = newFeeds.keySeq().first(),
@@ -28,12 +28,12 @@ describe('the feed reducer', () => {
   describe('when called with a delete feed action', () => {
     it('should remove the specified feed from the state', () => {
       const state = fromJS({
-          feeds: { '42': {} }
-        }),
-        action = {
-          id: '42',
-          type: types.DELETE_FEED
-        };
+              feeds: { '42': {} }
+            }),
+            action = {
+              id: '42',
+              type: actionType.DELETE_FEED
+            };
 
       const newFeeds = reducer(state, action).get('feeds');
 
@@ -44,18 +44,18 @@ describe('the feed reducer', () => {
   describe('when called with an edit feed action', () => {
     it('should update the specified feed in the state', () => {
       const state = Map({
-          feeds: fromJS({
-            '42': {
-              url: 'http://oldurl.seymour.com',
-              anotherProperty: 'do not alter'
-            }
-          })
-        }),
-        action = {
-          id: '42',
-          changes: Map({ url: 'http://newurl.seymour.com', newProperty: 'add this' }),
-          type: types.EDIT_FEED
-        };
+              feeds: fromJS({
+                '42': {
+                  url: 'http://oldurl.seymour.com',
+                  anotherProperty: 'do not alter'
+                }
+              })
+            }),
+            action = {
+              id: '42',
+              changes: Map({ url: 'http://newurl.seymour.com', newProperty: 'add this' }),
+              type: actionType.EDIT_FEED
+            };
 
       const newFeeds = reducer(state, action).get('feeds');
 
@@ -71,12 +71,12 @@ describe('the feed reducer', () => {
   describe('when called with a get feed action', () => {
     it('should retrieve the specified feed from the state', () => {
       const state = Map({
-          feeds: fromJS({ '42': { url: 'http://feed.seymour.com' } })
-        }),
-        action = {
-          id: '42',
-          type: types.GET_FEED
-        };
+              feeds: fromJS({ '42': { url: 'http://feed.seymour.com' } })
+            }),
+            action = {
+              id: '42',
+              type: actionType.GET_FEED
+            };
 
       const feed = reducer(state, action);
 
@@ -85,4 +85,4 @@ describe('the feed reducer', () => {
   });
 });
 
-// const type = types.REFESH_FEED_DATA
+// const type = actionType.REFESH_FEED_DATA

@@ -2,26 +2,26 @@ import { Map } from 'immutable';
 import shortid from 'shortid';
 
 import { INIT_STATE } from '../config/constants';
-import { FEED_ACTION_TYPES } from '../actions/action-types';
+import { FEED_ACTION_TYPES as actionType } from '../actions/action-types';
 
 export default function feedReducer(state = INIT_STATE, action) {
   const actions = {
-    [FEED_ACTION_TYPES.ADD_FEED]: () => {
+    [actionType.ADD_FEED]: () => {
       return state.updateIn(
         ['feeds'],
         feeds => feeds.set(shortid.generate(), Map({ url: action.url }))
       );
     },
-    [FEED_ACTION_TYPES.DELETE_FEED]: () => {
+    [actionType.DELETE_FEED]: () => {
       return state.deleteIn(['feeds', action.id]);
     },
-    [FEED_ACTION_TYPES.EDIT_FEED]: () => {
+    [actionType.EDIT_FEED]: () => {
       return state.mergeIn(['feeds', action.id], action.changes);
     },
-    [FEED_ACTION_TYPES.GET_FEED]: () => {
+    [actionType.GET_FEED]: () => {
       return state.getIn(['feeds', action.id]);
     },
-    [FEED_ACTION_TYPES.REFESH_FEED_DATA]: () => {
+    [actionType.REFESH_FEED_DATA]: () => {
       // TODO: implement feed retrieval with redux-thunk
     }
   };

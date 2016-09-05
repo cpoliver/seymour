@@ -1,22 +1,22 @@
-import { FEED_ACTION_TYPES as types } from './action-types';
+import { FEED_ACTION_TYPES as actionType } from './action-types';
 
 export const addFeed = url => ({
   url,
-  type: types.ADD_FEED
+  type: actionType.ADD_FEED
 });
 
 export const deleteFeed = id => ({
   id,
-  type: types.DELETE_FEED
+  type: actionType.DELETE_FEED
 });
 
 export const editFeed = (id, changes) => ({
   id,
   changes,
-  type: types.EDIT_FEED
+  type: actionType.EDIT_FEED
 });
 
 export const getFeed = id => ({
   id,
-  type: types.GET_FEED
+  type: actionType.GET_FEED
 });

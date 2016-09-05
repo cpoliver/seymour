@@ -1,5 +1,5 @@
 import * as actionCreator from '../../src/actions/feed-item-action-creator';
-import { FEED_ITEM_ACTION_TYPES as types } from '../../src/actions/action-types';
+import { FEED_ITEM_ACTION_TYPES as actionType } from '../../src/actions/action-types';
 
 describe('the feed item action creator', () => {
   describe('the `share` method', () => {
@@ -8,7 +8,7 @@ describe('the feed item action creator', () => {
         id: '42',
         feedId: '91',
         shareType: 'twitter',
-        type: types.SHARE
+        type: actionType.SHARE
       };
 
       const actual = actionCreator.share(expected.id, expected.feedId, expected.shareType);
@@ -22,7 +22,7 @@ describe('the feed item action creator', () => {
       const expected = {
         id: '42',
         feedId: '91',
-        type: types.TOGGLE_HIDDEN
+        type: actionType.TOGGLE_HIDDEN
       };
 
       const actual = actionCreator.toggleHidden(expected.id, expected.feedId);
@@ -36,7 +36,7 @@ describe('the feed item action creator', () => {
       const expected = {
         id: '42',
         feedId: '91',
-        type: types.TOGGLE_READ
+        type: actionType.TOGGLE_READ
       };
 
       const actual = actionCreator.toggleRead(expected.id, expected.feedId);
@@ -50,7 +50,7 @@ describe('the feed item action creator', () => {
        const expected = {
         id: '42',
         feedId: '91',
-        type: types.TOGGLE_STARRED 
+        type: actionType.TOGGLE_STARRED 
       };
 
       const actual = actionCreator.toggleStarred(expected.id, expected.feedId);

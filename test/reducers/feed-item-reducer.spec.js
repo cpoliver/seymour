@@ -2,7 +2,7 @@ import { fromJS, List, Map } from 'immutable';
 import shortid from 'shortid';
 
 import { INIT_STATE } from '../../src/config/constants';
-import { FEED_ITEM_ACTION_TYPES as types } from '../../src/actions/action-types';
+import { FEED_ITEM_ACTION_TYPES as actionType } from '../../src/actions/action-types';
 
 import reducer from '../../src/reducers/feed-item-reducer';
 
@@ -30,7 +30,7 @@ describe('the feed item reducer', () => {
         action = {
           id,
           feedId,
-          type: types.TOGGLE_HIDDEN
+          type: actionType.TOGGLE_HIDDEN
         };
 
       const newFeedItem = reducer(state, action)
@@ -62,7 +62,7 @@ describe('the feed item reducer', () => {
         action = {
           id,
           feedId,
-          type: types.TOGGLE_READ
+          type: actionType.TOGGLE_READ
         };
 
       const newFeedItem = reducer(state, action)
@@ -94,7 +94,7 @@ describe('the feed item reducer', () => {
         action = {
           id,
           feedId,
-          type: types.TOGGLE_STARRED
+          type: actionType.TOGGLE_STARRED
         };
 
       const newFeedItem = reducer(state, action)

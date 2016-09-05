@@ -1,18 +1,18 @@
 import { INIT_STATE } from '../config/constants';
-import { FEED_ITEM_ACTION_TYPES } from '../actions/action-types';
+import { FEED_ITEM_ACTION_TYPES as actionType } from '../actions/action-types';
 
 export default function feedItemReducer(state = INIT_STATE, action) {
   const actions = {
-    [FEED_ITEM_ACTION_TYPES.SHARE]: () => {
+    [actionType.SHARE]: () => {
 
     },
-    [FEED_ITEM_ACTION_TYPES.TOGGLE_HIDDEN]: () => {
+    [actionType.TOGGLE_HIDDEN]: () => {
       return state.updateIn(['feeds', action.feedId, action.id], item => toggle(item, 'isHidden'));
     },
-    [FEED_ITEM_ACTION_TYPES.TOGGLE_READ]: () => {
+    [actionType.TOGGLE_READ]: () => {
       return state.updateIn(['feeds', action.feedId, action.id], item => toggle(item, 'isRead'));
     },
-    [FEED_ITEM_ACTION_TYPES.TOGGLE_STARRED]: () => {
+    [actionType.TOGGLE_STARRED]: () => {
       return state.updateIn(['feeds', action.feedId, action.id], item => toggle(item, 'isStarred'));
     }
   };

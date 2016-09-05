@@ -1,6 +1,6 @@
 import { mapStateToProps, mapDispatchToProps} from '../../src/containers/add-feed-container';
 
-import { FEED_ACTION_TYPES as types } from '../../src/actions/action-types';
+import { FEED_ACTION_TYPES as actionType } from '../../src/actions/action-types';
 
 describe('the add feed container', () => {
   const mockDispatch = jest.fn(),
@@ -44,7 +44,7 @@ describe('the add feed container', () => {
 
             expect(mockDispatch).toBeCalledWith({
               url,
-              type: types.ADD_FEED
+              type: actionType.ADD_FEED
             });
           });
         });
