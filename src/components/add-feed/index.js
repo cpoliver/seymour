@@ -1,14 +1,22 @@
 import React, { PropTypes } from 'react';
 
-const AddFeed = ({ onClick }) => (
-  <div>
-    <input type="text" placeholder="rss feed url" />
-    <button onClick={onClick}>Add Feed</button>
-  </div>
-);
+const AddFeed = ({ onAddFeed }) => {
+  let feedUrlInput;
+  
+  const onClickHandler = () => {
+    onAddFeed(feedUrlInput.value);
+  };
+
+  return (
+    <div>
+      <input ref={ref => feedUrlInput = ref} type="text" placeholder="rss feed url" />
+      <button onClick={onClickHandler}>Add Feed</button>
+    </div>
+  );
+};
 
 AddFeed.propTypes = {
-  onClick: PropTypes.func.isRequired
+  onAddFeed: PropTypes.func.isRequired
 };
 
 export default AddFeed;

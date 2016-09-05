@@ -3,12 +3,10 @@ import { connect } from 'react-redux';
 import AddFeed from '../components/add-feed';
 import { addFeed } from '../actions/feed-action-creator';
 
-export const mapStateToProps = state => ({
-  //feedUrl: state.addFeedUrl
-});
+export const mapStateToProps = state => ({});
 
 export const mapDispatchToProps = dispatch => ({
-  onClick: url => { dispatch(addFeed(url)); }
+  onAddFeed: url => { dispatch(addFeed(url)); }
 });
 
 export default connect(

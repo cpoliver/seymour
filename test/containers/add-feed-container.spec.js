@@ -30,7 +30,7 @@ describe('the add feed container', () => {
         const props = Object.keys(mapDispatchToProps(mockDispatch));
 
         expect(props).toEqual([
-          'onClick'
+          'onAddFeed'
         ]);
       });
 
@@ -38,7 +38,7 @@ describe('the add feed container', () => {
         describe('when called', () => {
           it('should call dispatch with the correct action', () => {
             const url = 'http://newfeed.seymour.com',
-                  handler = mapDispatchToProps(mockDispatch).onClick;
+                  handler = mapDispatchToProps(mockDispatch).onAddFeed;
 
             handler(url);
 
