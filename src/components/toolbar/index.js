@@ -1,11 +1,10 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
-import AddFeed from '../add-feed';
-import { NO_OP } from '../../config/constants';
+import AddFeed from '../../containers/add-feed-container';
 
 const Toolbar = () => (
   <div className="c-toolbar">
-    <AddFeed onClick={NO_OP}/>
+    <AddFeed/>
   </div>
 );
 
