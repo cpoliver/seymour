@@ -7,6 +7,11 @@ import { Provider } from 'react-redux';
 import App from './components/app';
 import { makeStore} from './store';
 
+// Styles
+import '../node_modules/skeleton-css/css/normalize.css';
+import '../node_modules/skeleton-css/css/skeleton.css';
+import './styles.css';
+
 export const store = makeStore();
 
 render(
