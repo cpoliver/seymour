@@ -1,0 +1,70 @@
+.c-feed-item__header {
+  background: #9cdee7;
+  color: #00578d;
+  padding-right: 20px;
+  text-align: right;
+  width: inherit;
+}
+
+.c-feed-item__inner {
+  padding: 20px;
+}
+
+.c-feed-item__inner p {
+  margin: 0.4rem 0;
+  padding: 0;
+}
+
+.c-feed-item__published {
+  font-family: 'Roboto Condensed';
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: bold;
+  text-align: right;
+}
+
+.c-feed-item__title {
+  color: #fff;
+  font-family: 'Roboto Slab';
+  font-size: 2.1rem;
+  font-weight: bold;
+  line-height: 1.9rem;
+  text-decoration: none;
+}
+
+.c-feed-item__content {
+  font-family: 'Roboto';
+  font-size: 1.5rem;
+  font-weight: lighter;
+}
+
+.c-feed-item__categories {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 5px 0 -5px 20px;
+  padding: 0;
+}
+
+.c-feed-item__categories li a {
+  color: #00578d;
+  font-family: 'Roboto Condensed';
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-right: 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.c-feed-item__categories li a::after{
+  content: ','
+}
+
+.c-feed-item__categories li:last-child a::after{
+  content: ''
+}
+
+.c-feed-item__footer {
+  background: #fff;
+  width: inherit;
+}

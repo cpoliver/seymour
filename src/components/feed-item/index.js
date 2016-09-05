@@ -1,19 +1,26 @@
 import React, { PropTypes } from 'react';
 
-const FeedItem = ({ feedItem }) => {
-  return (
-    <div className="c-feed-item">
-      <a href={feedItem.link}>
-        <small className="c-feed-item__author">{feedItem.author}</small>,  
-        <small className="c-feed-item__published">{feedItem.publishedDate}</small>
-        <br />
-        <h4 className="c-feed-item__title">{feedItem.title}</h4>
-      </a>
-      <p className="c-feed-item__content" dangerouslySetInnerHTML={{__html: feedItem.content}}></p>
-      <small className="c-feed-item__categories">{feedItem.categories.join(', ')}</small>
+import './feed-item.css';
+
+const FeedItem = ({ feedItem }) => (
+  <li className="c-feed-item">
+    <div className="c-feed-item__header">
+      <span className="c-feed-item__published">
+        Posted: {feedItem.publishedDate}
+      </span>
     </div>
-  );
-};
+    <div className="c-feed-item__inner">
+      <a href={feedItem.link} className="c-feed-item__title">{feedItem.title}</a>
+      <br />
+      <p className="c-feed-item__content" dangerouslySetInnerHTML={{__html: feedItem.content }}></p>
+    </div>
+    <div className="c-feed-item__footer">
+      <ul className="c-feed-item__categories">
+        {feedItem.categories.map((category, index) => <li key={index}><a href="#">{category}</a></li>)}
+      </ul>
+    </div>
+  </li>
+);
 
 FeedItem.propTypes = {
   feedItem: PropTypes.shape({

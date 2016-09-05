@@ -2,18 +2,18 @@ import React, { PropTypes } from 'react';
 
 import FeedItem from '../feed-item';
 
-const Feed = ({ feed }) => {
-  return (
-    <div className="c-feed">
-      <a className="c-feed__name" href={feed.link}><h2>{feed.title}</h2></a>
-      <a className="c-feed__url" href={feed.feedUrl}><small>{feed.feedUrl}</small></a>
-      <p className="c-feed__description">{feed.description}</p>
-      {
-        feed.entries.map((entry, index) => <FeedItem key={index} feedItem={entry} />)
-      }
-    </div>
-  );
-};
+import './feed.css';
+
+const Feed = ({ feed }) => (
+  <div className="c-feed">
+    <a className="c-feed__title" href={feed.link}>{feed.title}</a>
+    <a className="c-feed__url" href={feed.feedUrl}><small>{feed.feedUrl}</small></a>
+    <p className="c-feed__description">{feed.description}</p>
+    {
+      feed.entries.map((entry, index) => <FeedItem key={index} feedItem={entry} />)
+    }
+  </div>
+);
 
 Feed.propTypes = {
   feed: PropTypes.shape({

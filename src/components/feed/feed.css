@@ -1,0 +1,33 @@
+.c-feed {
+  background: #00578d;
+  color: #9cdee7;
+  margin: 0 auto;
+  padding: 0;
+  min-width: 340px;
+  max-width: 540px;
+}
+
+.c-feed__title {
+  color: #fff;
+  font-family: 'Roboto Slab';
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 0 20px;
+  text-decoration: none;
+}
+
+.c-feed__url {
+  display: none;
+}
+
+.c-feed__description {
+  font-family: 'Roboto';
+  font-size: 1.5rem;
+  font-weight: lighter;
+  margin: 0 20px 10px 20px;
+  text-decoration: none;
+}
+
+.c-feed li {
+  list-style-type: none;
+}
