@@ -8,16 +8,12 @@ import mockFeed from '../../../test/test-data/mock-feed-data.json';
 
 import './app.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="app">
-        <Toolbar />
-        <hr />
-        <Feed feed={mockFeed.responseData.feed} />
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div className="app">
+    <Toolbar />
+    <hr />
+    <Feed feed={mockFeed.responseData.feed} />
+  </div>
+);
 
 export default App;
