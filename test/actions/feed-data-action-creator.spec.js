@@ -52,41 +52,44 @@ describe('the feed data action creator', () => {
       describe('when called', () => {
         it('should call dispatch with the request feed action', () => {
           const fn = actionCreator.fetchFeed('http://test.seymour.com'),
-                mockDispatch = jest.fn();
+                dispatch = jest.fn();
 
-          fn(mockDispatch);
+          fn(dispatch);
 
-          expect(mockDispatch).toHaveBeenCalledWith();
+          expect(dispatch).toBeCalledWith({
+            type: 'REQUEST_FEED',
+            url: 'https://crossorigin.me/https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=3&q=http://test.seymour.com'
+          });
         });
       });
     });
   });
 
-  describe('the `requestFeed` method', () => {
-    it('should return the requestFeed action', () => {
-      const expected = {
-        url: 'http://test.seymour.com',
-        type: actionType.REQUEST_FEED
-      };
+  // describe('the `requestFeed` method', () => {
+  //   it('should return the requestFeed action', () => {
+  //     const expected = {
+  //       url: 'http://test.seymour.com',
+  //       type: actionType.REQUEST_FEED
+  //     };
 
-      const actual = actionCreator.requestFeed(expected.url);
+  //     const actual = actionCreator.requestFeed(expected.url);
 
-      expect(actual).toEqual(expected);
-    });
-  });
+  //     expect(actual).toEqual(expected);
+  //   });
+  // });
 
-  describe('the `requestFeed` method', () => {
-    it('should return the requestFeed action', () => {
-      const expected = {
-        url: 'http://test.seymour.com',
-        type: actionType.REQUEST_FEED
-      };
+  // describe('the `requestFeed` method', () => {
+  //   it('should return the requestFeed action', () => {
+  //     const expected = {
+  //       url: 'http://test.seymour.com',
+  //       type: actionType.REQUEST_FEED
+  //     };
 
-      const actual = actionCreator.requestFeed(expected.url);
+  //     const actual = actionCreator.requestFeed(expected.url);
 
-      expect(actual).toEqual(expected);
-    });
-  });
+  //     expect(actual).toEqual(expected);
+  //   });
+  // });
 });
 
 
