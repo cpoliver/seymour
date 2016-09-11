@@ -68,26 +68,54 @@ describe('the feed data action creator', () => {
 
           const promise = fn(dispatch);
 
+          console.log(promise, promise.resolve, Object.keys(promise));
+
           expect(typeof promise.then).toBe('function');
         });
       });
     });
   });
 
-  // describe('the `requestFeed` method', () => {
-  //   it('should return the requestFeed action', () => {
-  //     const expected = {
-  //       url: 'http://test.seymour.com',
-  //       type: actionType.REQUEST_FEED
-  //     };
+  describe('the `shouldFetchFeed` method', () => {
+    describe('when called', () => {
+      describe('and the feedItems are falsey', () => {
+        it('should return true', () => {
+          const url = 'http://test.seymour.com',
+                itemsByFeed = { [url]: false },
+                actual = actionCreator.shouldFetchFeed({ itemsByFeed }, url);
 
-  //     const actual = actionCreator.requestFeed(expected.url);
+          expect(actual).toBe(true);
+        });
+      });
 
-  //     expect(actual).toEqual(expected);
-  //   });
-  // });
+      describe('and the feedItems.isFetching is truthy', () => {
+        it('should return false', () => {
+          const url = 'http://test.seymour.com',
+                itemsByFeed = { [url]: { isFetching: true } },
+                actual = actionCreator.shouldFetchFeed({ itemsByFeed }, url);
 
-  // describe('the `requestFeed` method', () => {
+          expect(actual).toBe(false);
+        });
+      });
+
+      describe('and the feedItems exist and isFetching is falsey', () => {
+        it('should return the value of feedItems.didInvalidate', () => {
+          const url = 'http://test.seymour.com';
+          let itemsByFeed = { [url]: { didInvalidate: true } },
+              actual = actionCreator.shouldFetchFeed({ itemsByFeed }, url);
+
+          expect(actual).toBe(itemsByFeed[url].didInvalidate);
+
+          itemsByFeed = { [url]: { didInvalidate: false } };
+          actual = actionCreator.shouldFetchFeed({ itemsByFeed }, url);
+
+          expect(actual).toBe(itemsByFeed[url].didInvalidate);
+        });
+      });
+    });
+  });
+
+  // describe('the `fetchFeedIfNeeded` method', () => {
   //   it('should return the requestFeed action', () => {
   //     const expected = {
   //       url: 'http://test.seymour.com',
