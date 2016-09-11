@@ -72,6 +72,8 @@ describe('the feed data action creator', () => {
 
           expect(typeof promise.then).toBe('function');
         });
+
+        // TODO: find a way to test the returned promise
       });
     });
   });
@@ -115,22 +117,5 @@ describe('the feed data action creator', () => {
     });
   });
 
-  // describe('the `fetchFeedIfNeeded` method', () => {
-  //   it('should return the requestFeed action', () => {
-  //     const expected = {
-  //       url: 'http://test.seymour.com',
-  //       type: actionType.REQUEST_FEED
-  //     };
-
-  //     const actual = actionCreator.requestFeed(expected.url);
-
-  //     expect(actual).toEqual(expected);
-  //   });
-  // });
+  // TODO: figure way of testing shouldFetchFeedData
 });
-
-
-// 
-// 
-// shouldFetchFeed
-// fetchFeedIfNeeded
