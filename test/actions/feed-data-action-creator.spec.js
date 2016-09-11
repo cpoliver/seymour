@@ -61,6 +61,15 @@ describe('the feed data action creator', () => {
             url: 'https://crossorigin.me/https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=3&q=http://test.seymour.com'
           });
         });
+
+        it('should return a promise', () => {
+          const fn = actionCreator.fetchFeed('http://test.seymour.com'),
+                dispatch = jest.fn();
+
+          const promise = fn(dispatch);
+
+          expect(typeof promise.then).toBe('function');
+        });
       });
     });
   });
