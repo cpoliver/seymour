@@ -9,9 +9,11 @@ const Feed = ({ feed }) => (
     <a className="c-feed__title" href={feed.link}>{feed.title}</a>
     <a className="c-feed__url" href={feed.feedUrl}><small>{feed.feedUrl}</small></a>
     <p className="c-feed__description">{feed.description}</p>
+    <ol className="c-feed__items">
     {
       feed.entries.map((entry, index) => <FeedItem key={index} feedItem={entry} />)
     }
+    </ol>
   </div>
 );
 
