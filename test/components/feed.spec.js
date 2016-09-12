@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { fromJS } from 'immutable';
 
 import Feed from '../../src/components/feed';
 import FeedItem from '../../src/components/feed-item';
