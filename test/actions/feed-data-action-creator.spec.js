@@ -68,8 +68,6 @@ describe('the feed data action creator', () => {
 
           const promise = fn(dispatch);
 
-          console.log(promise, promise.resolve, Object.keys(promise));
-
           expect(typeof promise.then).toBe('function');
         });
 
