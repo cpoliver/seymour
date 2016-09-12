@@ -20,7 +20,6 @@ describe('the feed-list component', () => {
     });
   });
 
-  // TODO: fix error "Warning: Failed prop type: Cannot read property 'link' of undefined"
   describe('when the feed list contains one feed', () => {
     it('should render the feed list', () => {
       const feedList = shallow(<FeedList feeds={mockFeedListData}/>);
@@ -29,7 +28,6 @@ describe('the feed-list component', () => {
     });
   });
 
-  // TODO: fix error "Warning: Failed prop type: Cannot read property 'link' of undefined"
   describe('when the feed list contains several feeds', () => {
     it('should render the feed list', () => {
       const mockFeedListDataWithMultipleFeeds = [responseData.feed, responseData.feed, responseData.feed],
